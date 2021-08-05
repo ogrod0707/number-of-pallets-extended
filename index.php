@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pallet calculator</title>
     
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <br></br>
-   <a href="index.php">Wróć</a>
+   <a href="index.php">Reset</a>
 <div class="container">
     <div class="howmuch">
         <form action="index.php" method="GET">
-            <label for="pt-kind">Rodzaje palet: </label>
+            <label for="pt-kind"> Rodzaje palet: </label>
             <input type="number" name="pt-kind">
             <input type="submit" value="OK">
         </form> <br>
     </div>
-
+<div class="boxes">
      <?php
 
     if(isset($_GET['pt-kind']))
@@ -33,21 +33,21 @@ echo <<<END
 
 <form action="index.php" method="POST">
 <div class='pallet'>
- <label for="pt-number">Ilość palet:</label>
-    <input name="pt-number$i" type="number"><br>
+ <label for="pt-number$i">Ilość palet:</label>
+    <input id="pt-number$i" name="pt-number$i"  type="number"><br>
    <h3>Wymiary palety $i:</h3>
 
-    <label for="pt-width">Width</label>
-    <input name="pt-width$i" type="number"><br>
-    <label for="pt-height">Height</label>
-    <input name="pt-height$i" type="number"><br>
-    <label for="pt-length">Length</label>
-    <input name="pt-length$i"type="number"><br>
+    <label for="pt-width$i">Width&nbsp;</label>
+    <input id="pt-width$i"  name="pt-width$i" type="number"><br>
+    <label for="pt-height$i">Height</label>
+    <input id="pt-height$i" name="pt-height$i" type="number"><br>
+    <label for="pt-length$i">Length</label>
+    <input id="pt-length$i" name="pt-length$i" type="number"><br>
     
 
 
-    <label for="double-pallet">Piętrowalne palety? </label>
-    <input name="double-pallet$i" type="checkbox" value="true"><br>
+    <label for="double-pallet$i">Piętrowalne palety? </label>
+    <input id="double-pallet$i" name="double-pallet$i" type="checkbox" value="true"><br>
    </div>
 
 
@@ -58,7 +58,7 @@ END;
 
 
 ?> 
-
+</div>
 <input type="submit" value="Oblicz" >
 
     <br></br>
