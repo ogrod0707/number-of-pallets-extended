@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <br></br>
-   <a href="index.php">Reset</a>
+
+  <div class="back">
+  <a href="index.php">Reset</a>
+  <a href="contenerinfo.php">Wymiary kontenerów</a>
+  </div>
+  
 <div class="container">
     <div class="howmuch">
         <form action="index.php" method="GET">
@@ -103,7 +107,14 @@ if(isset($_POST['pt-width3'])){
 
       
       if(isset($_POST['double-pallet1'])){
-        $pt_amount1 /= 2;
+        
+        if($pt_height1 * 2  - 15 < $container20H) {
+          $pt_amount1 /= 2;
+        }
+        else{
+          echo"Nie mozna piętrować palety 1 rodzaju<br>";
+        }
+       
       }
 
 
@@ -112,8 +123,15 @@ if(isset($_POST['pt-width3'])){
         $pt_amount2 /= 2;
       }
       
-      if(isset($_POST['double-pallet1'])){
-        $pt_amount2 /= 2;
+      if(isset($_POST['double-pallet2'])){
+        
+        if($pt_height2 * 2  - 15 < $container20H) {
+          $pt_amount2 /= 2;
+        }
+        else{
+          echo"Nie mozna piętrować palety 2 rodzaju<br>";
+        }
+       
       }
 
       if($pt_width3*2-10 < $container20W){
@@ -121,8 +139,15 @@ if(isset($_POST['pt-width3'])){
         $pt_amount3 /= 2;
       }
       
-      if(isset($_POST['double-pallet1'])){
-        $pt_amount3 /= 2;
+      if(isset($_POST['double-pallet3']) ){
+       
+        if($pt_height3 * 2  - 15 < $container20H) {
+          $pt_amount3 /= 2;
+        }
+        else{
+          echo"Nie mozna piętrować palety 3 rodzaju <br>";
+        }
+       
       }
 
     $pt_all = $pt_amount1 + $pt_amount2 + $pt_amount3;
@@ -158,24 +183,39 @@ else if(isset($_POST['pt-width2'])){
     $pt_amount2 =$pt_length2 * $pt_number2;
     
    
-    if($pt_width1*2-10 < $container20W){
+    if($pt_width1*2-10 < $container20W){ // sprawdza czy mozna ustawic dwa rzędy
            
         $pt_amount1 /= 2;
       }
 
       
-      if(isset($_POST['double-pallet1'])){
-        $pt_amount1 /= 2;
+      if(isset($_POST['double-pallet1'])){ // sprawdza czy uzytkownik chce pietrowalne palety i czy mozna
+     
+        if($pt_height1 * 2  - 15 < $container20H) {
+          $pt_amount1 /= 2;
+        }
+        else{
+          echo"Nie mozna piętrować palety 1 rodzaju<br>";
+        }
+       
+        
       }
 
 
-      if($pt_width2*2-10 < $container20W){
+      if($pt_width2*2-10 < $container20W){ // sprawdza czy mozna ustawic dwa rzędy
            
         $pt_amount2 /= 2;
       }
       
-      if(isset($_POST['double-pallet1'])){
-        $pt_amount2 /= 2;
+      if(isset($_POST['double-pallet2']) ){// sprawdza czy uzytkownik chce pietrowalne palety i czy mozna
+        
+        if($pt_height2 * 2  - 15 < $container20H) {
+          $pt_amount2 /= 2;
+        }
+        else{
+          echo"Nie mozna piętrować palety 2 rodzaju<br>";
+        }
+
       }
 
       $pt_all = $pt_amount1 + $pt_amount2;
@@ -210,7 +250,15 @@ else if(isset($_POST['pt-width1'])){
         }
         
         if(isset($_POST['double-pallet1'])){
-          $pt_amount1 /= 2;
+
+          if($pt_height1 * 2  - 15 < $container20H) {
+            $pt_amount1 /= 2;
+          }
+          else{
+            echo"Nie mozna piętrować palet<br>";
+          }
+  
+
         }
        
         if($pt_amount1 - 20 <= $container20L) {
