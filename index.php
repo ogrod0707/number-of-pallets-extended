@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pallet calculator</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -81,7 +81,240 @@ $container40W = 230.9;
 $container40H = 237.9;
 
 
-if(isset($_POST['pt-width3'])){
+
+
+if(isset($_POST['pt-width5'])){
+ 
+  $pt_length1 = $_POST['pt-length1'];
+  $pt_width1 = $_POST['pt-width1'];
+  $pt_height1 = $_POST['pt-height1'];
+  $pt_number1 = $_POST['pt-number1'];
+  $pt_length2 = $_POST['pt-length2'];
+  $pt_width2 = $_POST['pt-width2'];
+  $pt_height2 = $_POST['pt-height2'];
+  $pt_number2 = $_POST['pt-number2'];
+  $pt_length3 = $_POST['pt-length3'];
+  $pt_width3 = $_POST['pt-width3'];
+  $pt_height3 = $_POST['pt-height3'];
+  $pt_number3 = $_POST['pt-number3'];
+  $pt_length4 = $_POST['pt-length4'];
+  $pt_width4 = $_POST['pt-width4'];
+  $pt_height4 = $_POST['pt-height4'];
+  $pt_number4 = $_POST['pt-number4'];
+  $pt_length5 = $_POST['pt-length5'];
+  $pt_width5 = $_POST['pt-width5'];
+  $pt_height5 = $_POST['pt-height5'];
+  $pt_number5 = $_POST['pt-number5'];
+  // $pt_double2 = $_POST['double-pallet2'];
+  $x = $pt_number1+$pt_number2+$pt_number3+$pt_number4+$pt_number5;
+  $pt_amount1 =$pt_length1 * $pt_number1;
+  $pt_amount2 =$pt_length2 * $pt_number2;
+  $pt_amount3 =$pt_length3 * $pt_number3;
+  $pt_amount4 =$pt_length4 * $pt_number4;
+  $pt_amount5 =$pt_length5 * $pt_number5;
+  if($pt_width1*2-10 < $container20W){ // sprawdza czy mozna ulozyc dwa rzedy tego rodzaju palet
+         
+      $pt_amount1 /= 2;  //jesli tak to zmniejsza o połowę obszar który by zajmowały te palety
+    }
+
+    
+    if(isset($_POST['double-pallet1'])){  // sprawdza czy mozna ułożyć dwie palety na siebie
+      
+      if($pt_height1 * 2  - 15 < $container20H) {//jesli mieszczaa sie w limicie jaki ma wysokosc kontenera to ten redukujemy obszar o połowę
+        $pt_amount1 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 1 rodzaju<br>"; 
+      }
+     
+    }
+
+
+    if($pt_width2*2-10 < $container20W){
+         
+      $pt_amount2 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet2'])){
+      
+      if($pt_height2 * 2  - 15 < $container20H) {
+        $pt_amount2 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 2 rodzaju<br>";
+      }
+     
+    }
+
+    if($pt_width3*2-10 < $container20W){
+         
+      $pt_amount3 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet3']) ){
+     
+      if($pt_height3 * 2  - 15 < $container20H) {
+        $pt_amount3 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 3 rodzaju <br>";
+      }
+     
+    }
+    if($pt_width4*2-10 < $container20W){
+         
+      $pt_amount4 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet4']) ){
+     
+      if($pt_height4 * 2  - 15 < $container20H) {
+        $pt_amount4 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 4 rodzaju <br>";
+      }
+     
+    }
+    if($pt_width5*2-10 < $container20W){
+         
+      $pt_amount5 /= 2;
+    }
+    if(isset($_POST['double-pallet5']) ){
+     
+      if($pt_height5 * 2  - 15 < $container20H) {
+        $pt_amount5 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 5 rodzaju <br>";
+      }
+     
+    }
+
+  $pt_all = $pt_amount1 + $pt_amount2 + $pt_amount3+ $pt_amount4+ $pt_amount5;
+  if($pt_all - 20 <= $container20L) {
+          echo"Na kontener 20vd mozna zaladowac: $x palet";
+      
+  }
+  else if($pt_all - 20 <= $container40L){
+     
+    
+      echo"Na kontener 40vd mozna zaladowac: $x palet";
+  }
+  else
+  {
+      echo"załadunek nie zmiesci sie na jednym kontenerze";
+  }
+}
+
+
+else if(isset($_POST['pt-width4'])){
+ 
+  $pt_length1 = $_POST['pt-length1'];
+  $pt_width1 = $_POST['pt-width1'];
+  $pt_height1 = $_POST['pt-height1'];
+  $pt_number1 = $_POST['pt-number1'];
+  $pt_length2 = $_POST['pt-length2'];
+  $pt_width2 = $_POST['pt-width2'];
+  $pt_height2 = $_POST['pt-height2'];
+  $pt_number2 = $_POST['pt-number2'];
+  $pt_length3 = $_POST['pt-length3'];
+  $pt_width3 = $_POST['pt-width3'];
+  $pt_height3 = $_POST['pt-height3'];
+  $pt_number3 = $_POST['pt-number3'];
+  $pt_length4 = $_POST['pt-length4'];
+  $pt_width4 = $_POST['pt-width4'];
+  $pt_height4 = $_POST['pt-height4'];
+  $pt_number4 = $_POST['pt-number4'];
+  // $pt_double2 = $_POST['double-pallet2'];
+  $x = $pt_number1+$pt_number2+$pt_number3+$pt_number4;
+  $pt_amount1 =$pt_length1 * $pt_number1;
+  $pt_amount2 =$pt_length2 * $pt_number2;
+  $pt_amount3 =$pt_length3 * $pt_number3;
+  $pt_amount4 =$pt_length4 * $pt_number4;
+  if($pt_width1*2-10 < $container20W){
+         
+      $pt_amount1 /= 2;
+    }
+
+    
+    if(isset($_POST['double-pallet1'])){
+      
+      if($pt_height1 * 2  - 15 < $container20H) {
+        $pt_amount1 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 1 rodzaju<br>";
+      }
+     
+    }
+
+
+    if($pt_width2*2-10 < $container20W){
+         
+      $pt_amount2 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet2'])){
+      
+      if($pt_height2 * 2  - 15 < $container20H) {
+        $pt_amount2 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 2 rodzaju<br>";
+      }
+     
+    }
+
+    if($pt_width3*2-10 < $container20W){
+         
+      $pt_amount3 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet3']) ){
+     
+      if($pt_height3 * 2  - 15 < $container20H) {
+        $pt_amount3 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 3 rodzaju <br>";
+      }
+     
+    }
+    if($pt_width4*2-10 < $container20W){
+         
+      $pt_amount4 /= 2;
+    }
+    
+    if(isset($_POST['double-pallet4']) ){
+     
+      if($pt_height4 * 2  - 15 < $container20H) {
+        $pt_amount4 /= 2;
+      }
+      else{
+        echo"Nie mozna piętrować palety 4 rodzaju <br>";
+      }
+     
+    }
+
+  $pt_all = $pt_amount1 + $pt_amount2 + $pt_amount3+ $pt_amount4;
+  if($pt_all - 20 <= $container20L) {
+          echo"Na kontener 20vd mozna zaladowac: $x palet";
+      
+  }
+  else if($pt_all - 20 <= $container40L){
+     
+    
+      echo"Na kontener 40vd mozna zaladowac: $x palet";
+  }
+  else
+  {
+      echo"załadunek nie zmiesci sie na jednym kontenerze";
+  }
+}
+
+
+else if(isset($_POST['pt-width3'])){
  
     $pt_length1 = $_POST['pt-length1'];
     $pt_width1 = $_POST['pt-width1'];
@@ -152,7 +385,7 @@ if(isset($_POST['pt-width3'])){
 
     $pt_all = $pt_amount1 + $pt_amount2 + $pt_amount3;
     if($pt_all - 20 <= $container20L) {
-            echo"Na kontener 20vd mozna zaladowac: <br>$pt_number1 palet pierwszego rodzaju, $pt_number2 drugiego rodzaju oraz $pt_number3 trzeciego rodzaju.";
+      echo"Na kontener 20vd mozna zaladowac: $x palet";
         
     }
     else if($pt_all - 20 <= $container40L){
@@ -221,7 +454,7 @@ else if(isset($_POST['pt-width2'])){
       $pt_all = $pt_amount1 + $pt_amount2;
     if($pt_all - 20 <= $container20L) {
 
-            echo"Na kontener 20vd mozna zaladowac: <br>$pt_number1 palet pierwszego rodzaju oraz $pt_number2 drugiego rodzaju.";
+      echo"Na kontener 20vd mozna zaladowac: $x palet";
         
     }
     else if($pt_all - 20 <= $container40L){
